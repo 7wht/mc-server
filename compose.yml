@@ -1,0 +1,27 @@
+services:
+  mc-server:
+    image: docker.io/itzg/minecraft-server
+    network_mode: service:tailscale
+    volumes:
+      - ./minecraft-data:/data:Z
+    environment:
+      EULA: true
+      TYPE: paper
+      VERSION: "26.1.2"
+      MEMORY: "6G"
+    depends_on:
+      - tailscale
+    restart: unless-stopped
+
+  tailscale:
+    image: docker.io/tailscale/tailscale
+    hostname: mc-server
+    ports:
+      - "127.0.0.1:25565:25565"
+    volumes:
+      - ./tailscale-data:/var/lib/tailscale:Z
+    environment:
+      TS_STATE_DIR: /var/lib/tailscale
+    env_file:
+      - tailscale-authkey
+    restart: unless-stopped
