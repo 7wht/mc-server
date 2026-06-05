@@ -22,6 +22,6 @@ services:
       - ./tailscale-data:/var/lib/tailscale:Z
     environment:
       TS_STATE_DIR: /var/lib/tailscale
-    env_file:
+    env_file: 
       - tailscale-authkey
     restart: unless-stopped
