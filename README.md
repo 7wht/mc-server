@@ -4,11 +4,6 @@
 podman podman-compose
 ```
 
-or
-
-```
-docker docker-compose
-```
 
 # copy tailscale-authkey-template to tailscale-authkey
 
@@ -30,22 +25,11 @@ echo "{your tailscale key} | tee tailscale-authkey"
 podman compose up
 ```
 
- or 
-
-```
-docker compose up
-```
 
 # connect to server console with
 
 ```
 podman compose exec mc-server rcon-cli
-```
-
-or
-
-```
-docker compose exec mc-server rcon-cli
 ```
 
 
