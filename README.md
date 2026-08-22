@@ -37,6 +37,6 @@ podman compose exec mc-server rcon-cli
 
 ```
 sudo chown -R $USER: minecraft-data/
-cp plugins/ minecraft-data/
+cp -r plugins/ minecraft-data/
 cp server.properties minecraft-data/
 ```
